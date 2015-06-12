@@ -6,11 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     </head>
     <body>
+        <div id="vr-container">
+
+        </div>
 
         <script type="text/javascript" src="../build/vr.dev.js" charset="utf-8"></script>
         <script type="text/javascript">
 
-            VR_ENGINE.kickStart();
+            VR_ENGINE.kickStart('vr-container');
 
             VR.floor();
 

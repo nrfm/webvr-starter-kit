@@ -143,15 +143,13 @@
 		window.VR = VR;
 		window.THREE = VR.THREE;
 		window.VR_ENGINE = {
-			kickstart:kickstart
+			kickStart:kickStart
 		};
-
 	}
 
-	function kickstart(){
+	function kickStart(containerId){
 		//todo: set up button/info elements
-
-		VR.init();
+		VR.init(containerId);
 
 		if (document.body) {
 			initUI();
