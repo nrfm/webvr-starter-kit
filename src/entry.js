@@ -137,6 +137,18 @@
 	function initialize() {
 		initRequirements();
 
+		/*
+		 export global things
+		 */
+		window.VR = VR;
+		window.THREE = VR.THREE;
+		window.VR_ENGINE = {
+			kickstart:kickstart
+		};
+
+	}
+
+	function kickstart(){
 		//todo: set up button/info elements
 
 		VR.init();
@@ -149,13 +161,9 @@
 
 		window.addEventListener('resize', VR.resize, false);
 
-		/*
-		export global things
-		*/
-		window.VR = VR;
-		window.THREE = VR.THREE;
+		VR.start();
 	}
 
 	initialize();
-	VR.start();
+
 }());
