@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WebVR Starter Kit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+<body>
+<div id="vr-container">
+
+</div>
+
+<script type="text/javascript" src="../build/vr.dev.js" charset="utf-8"></script>
+<script type="text/javascript" src="../node_modules/lodash" charset="utf-8"></script>
+<script type="text/javascript">
+    var sceneData = {
+        "metadata": {
+            "version": 4.3,
+            "type": "Object",
+            "generator": "ObjectExporter"
+        },
+        "geometries": [
+            {
+                "uuid": "E2B3AA24-60C7-43C9-AD10-BD3B7D9D4AAF",
+                "type": "BoxGeometry",
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+            }],
+        "materials": [
+            {
+                "uuid": "CF5E11A7-8735-4ED5-ACB5-C3921EE88502",
+                "type": "MeshPhongMaterial",
+                "color": 16777215,
+                "emissive": 0,
+                "specular": 1118481,
+                "shininess": 30
+            }],
+        "object": {
+            "uuid": "3741222A-BD8F-401C-A5D2-5A907E891896",
+            "type": "Scene",
+            "name": "Scene",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+            "children": [
+                {
+                    "uuid": "C5CEF24E-FC0F-4EFC-A2B5-528559BF7269",
+                    "type": "Mesh",
+                    "name": "Box 1",
+                    "geometry": "E2B3AA24-60C7-43C9-AD10-BD3B7D9D4AAF",
+                    "material": "CF5E11A7-8735-4ED5-ACB5-C3921EE88502",
+                    "matrix": [0.2096792757511139, -0.17109014093875885, 0.9626851677894592, 0, 0.4504367709159851, 0.8907762765884399, 0.060202229768037796, 0, -0.867837131023407, 0.42100563645362854, 0.2638426125049591, 0, 0, 2, -2, 1]
+                }]
+        }
+    }
+</script>
+
+
+<script type="text/javascript">
+
+    VR_ENGINE.kickStart('vr-container', sceneData);
+    VR.floor();
+    VR.box();
+
+</script>
+</body>
+</html>

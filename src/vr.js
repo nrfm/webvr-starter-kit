@@ -19,6 +19,7 @@
         document.msExitFullscreen ||
         nop
         ).bind(document),
+        objectLoader,
 
     //scene assets
         camera,
@@ -226,7 +227,7 @@
         }, false);
     }
 
-    function initScene(containerId) {
+    function initScene(containerId, sceneData) {
         function attachCanvas(containerId) {
             if (containerId) {
                 document.getElementById(containerId).appendChild(renderer.domElement);
@@ -250,6 +251,24 @@
 
         //need a scene to put all our objects in
         scene = new THREE.Scene();
+
+        /*
+        *
+        * if we pass a scene in json use that as the scene
+        * */
+        if (sceneData) {
+            console.log( '::initScene()      ' );
+            if (typeof sceneData === 'string') {
+
+
+            } else if (typeof  sceneData === 'object') {
+                var loader = new THREE.ObjectLoader();
+                scene = loader.parse(sceneData);
+
+
+            }
+        }
+
 
         bodyWrapper = new VRObject(scene, require('./objects/empty'), null, {
             name: 'body'
@@ -370,11 +389,13 @@
         VR.canvas.addEventListener('fullscreenerror', fullScreenError, false);
     }
 
+
     function initRequirements() {
         //load external requirements
         THREE = require('three');
         require('imports?THREE=three!DeviceOrientationControls');
         require('imports?THREE=three!OrbitControls');
+        require('imports?THREE=three!ObjectLoader');
 
         //if (typeof __DEV__ !== 'undefined' && __DEV__) {
         require('imports?THREE=three!AugmentedConsole');
@@ -389,10 +410,10 @@
         require('imports?THREE=three!./lib/VRControls');
     }
 
-    function initialize(containerId) {
+    function initialize(containerId, sceneData) {
         //todo: set up button/info elements
-
-        initScene(containerId);
+        console.log( '::initialize()' , arguments);
+        initScene(containerId, sceneData);
 
         initShake();
 
