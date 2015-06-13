@@ -109,7 +109,7 @@ module.exports = (function () {
 		devtool: 'source-map',
 		output: {
 			path: './build/',
-			filename: 'vr.js',
+			filename: 'vr2.js',
 			sourceMapFilename: '[file].map'
 		},
 		plugins: [
