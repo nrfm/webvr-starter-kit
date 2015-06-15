@@ -143,7 +143,9 @@
         window.VR = VR;
         window.THREE = VR.THREE;
         window.VR_ENGINE = {
-            kickStart: kickStart
+            kickStart: kickStart,
+            mousetrap: require('mousetrap')
+
         };
     }
 

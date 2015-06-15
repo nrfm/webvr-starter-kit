@@ -238,7 +238,7 @@ THREE.AudioListener.prototype.updateMatrixWorld = ( function () {
 
             orientation.set(0, 0, -1).applyQuaternion(quaternion);
 
-            console.log('THREE.AudioListener:241 silencing this for dev in desktop until there is time to look into it');
+            //console.log('THREE.AudioListener:241 silencing this for dev in desktop until there is time to look into it');
             if (listener && listener.setPosition) {
                 if (!isNaN(position.x) && !isNaN(position.y) && !isNaN(position.z) && !isNaN(orientation.x) && !isNaN(orientation.y) && !isNaN(orientation.z)) {
                     listener.setPosition(position.x, position.y, position.z);

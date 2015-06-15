@@ -265,6 +265,8 @@
                 var loader = new THREE.ObjectLoader();
                 scene = loader.parse(sceneData);
 
+                ///////
+
 
             }
         }

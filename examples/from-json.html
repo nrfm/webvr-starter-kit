@@ -10,7 +10,7 @@
 
 </div>
 
-<script type="text/javascript" src="../build/vr.js" charset="utf-8"></script>
+<script type="text/javascript" src="../build/vr.dev.js" charset="utf-8"></script>
 <!--<script src="//nrfm.github.io/webvr-starter-kit/build/vr.js" charset="utf-8" >-->
 <script type="text/javascript" src="../node_modules/lodash" charset="utf-8"></script>
 <script type="text/javascript">
@@ -105,24 +105,42 @@
 
 <script type="text/javascript">
 
-    VR_ENGINE.kickStart(null, sceneData);
-    VR.floor().setMaterial('wood');
+    VR_ENGINE.kickStart();
+    var sky = VR.sky();
+    VR.floor();
+
+    VR.box().setMaterial('wood').moveUp(0.5);
 
 
-    var box = VR.box();
-//    VR.animate(function (delta) {
-//        console.log( '::()' );
-//        box.rotateY(delta * Math.PI);
-//    });
+//    VR_ENGINE.kickStart(null, sceneData);
+//    VR.floor().setMaterial('wood');
 
-//
-//    VR.animate(function(){
-//        VR.body.rotateY(.1);
-//    });
-//
-//    VR.animate(function(){
-//        console.log( '::()>> ' );
-//        VR.body.rotateY(.1);
+
+//    var box = VR.box();
+
+
+    /*
+    * animation
+    * */
+
+    VR_ENGINE.mousetrap.bind('up', function() {
+        console.log( '::() up' );
+        VR.body.moveZ(-0.2);
+    });
+    VR_ENGINE.mousetrap.bind('down', function() {
+        VR.body.moveZ(0.2);
+    });
+    VR_ENGINE.mousetrap.bind('left', function() {
+        VR.body.rotateY(0.05);
+    });
+    VR_ENGINE.mousetrap.bind('right', function() {
+        VR.body.rotateY(-0.05);
+    });
+
+
+
+//    VR.animate(function (delta, time) {
+//       //console.log( '::()' );
 //    });
 
 </script>
