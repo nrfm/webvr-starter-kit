@@ -263,8 +263,17 @@
 
             } else if (typeof  sceneData === 'object') {
                 var loader = new THREE.ObjectLoader();
-                scene = loader.parse(sceneData);
+                var newScene = loader.parse(sceneData);
 
+                ///////
+                //add each object to vrObjects
+                //var obj, i, objs = [];
+                //for ( i = newScene.children.length - 1; i >= 0 ; i -- ) {
+                //    obj = newScene.children[ i ];
+                //        newScene.remove(obj);
+                //}
+
+                scene = newScene;
 
             }
         }

@@ -10,7 +10,7 @@
 
 </div>
 
-<script type="text/javascript" src="../build/vr.js" charset="utf-8"></script>
+<script type="text/javascript" src="../build/vr.dev.js" charset="utf-8"></script>
 <!--<script src="//nrfm.github.io/webvr-starter-kit/build/vr.js" charset="utf-8" >-->
 <script type="text/javascript" src="../node_modules/lodash" charset="utf-8"></script>
 <script type="text/javascript">
@@ -77,7 +77,7 @@
                 {
                     "uuid": "5DFC55A0-9150-4857-9806-6BC66DBEE97C",
                     "type": "Mesh",
-                    "name": "Box 1",
+                    "name": "Box 2",
                     "geometry": "E2B3AA24-60C7-43C9-AD10-BD3B7D9D4AAF",
                     "material": "CF5E11A7-8735-4ED5-ACB5-C3921EE88502",
                     "matrix": [0.20967929065227509,-0.17109015583992004,0.9626851677894592,0,0.4504367709159851,0.8907762765884399,0.060202229768037796,0,-0.867837131023407,0.42100563645362854,0.2638426423072815,0,0,2,2.2189791202545166,1]
@@ -85,7 +85,7 @@
                 {
                     "uuid": "2E8ACD4D-8851-4E81-BDB8-A4C774A2BC92",
                     "type": "Mesh",
-                    "name": "Box 1",
+                    "name": "Box 3",
                     "geometry": "E2B3AA24-60C7-43C9-AD10-BD3B7D9D4AAF",
                     "material": "CF5E11A7-8735-4ED5-ACB5-C3921EE88502",
                     "matrix": [0.20967929065227509,-0.17109015583992004,0.9626851677894592,0,0.4504367709159851,0.8907762765884399,0.060202229768037796,0,-0.867837131023407,0.42100563645362854,0.2638426423072815,0,1.8959485292434692,2.002139091491699,0.0617460273206234,1]
@@ -106,23 +106,41 @@
 <script type="text/javascript">
 
     VR_ENGINE.kickStart(null, sceneData);
-    VR.floor().setMaterial('wood');
+    var sky = VR.sky();
+    VR.floor();
+
+    VR.box().setMaterial('wood').moveUp(0.5);
 
 
-    var box = VR.box();
-//    VR.animate(function (delta) {
-//        console.log( '::()' );
-//        box.rotateY(delta * Math.PI);
-//    });
+//    VR_ENGINE.kickStart(null, sceneData);
+//    VR.floor().setMaterial('wood');
 
+
+//    var box = VR.box();
+
+
+    /*
+    * animation
+    * */
 //
-//    VR.animate(function(){
-//        VR.body.rotateY(.1);
-//    });
-//
-//    VR.animate(function(){
-//        console.log( '::()>> ' );
-//        VR.body.rotateY(.1);
+    VR_ENGINE.mousetrap.bind('up', function() {
+        console.log( '::() up' );
+        VR.body.moveZ(-0.2);
+    });
+    VR_ENGINE.mousetrap.bind('down', function() {
+        VR.body.moveZ(0.2);
+    });
+    VR_ENGINE.mousetrap.bind('left', function() {
+        VR.body.rotateY(0.05);
+    });
+    VR_ENGINE.mousetrap.bind('right', function() {
+        VR.body.rotateY(-0.05);
+    });
+
+
+
+//    VR.animate(function (delta, time) {
+//       //console.log( '::()' );
 //    });
 
 </script>

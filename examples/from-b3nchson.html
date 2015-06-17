@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WebVR Starter Kit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+<body>
+<div id="vr-container">
+
+</div>
+
+<script type="text/javascript" src="../build/vr.js" charset="utf-8"></script>
+<!--<script src="//nrfm.github.io/webvr-starter-kit/build/vr.js" charset="utf-8" >-->
+<script type="text/javascript" src="../node_modules/lodash" charset="utf-8"></script>
+<script type="text/javascript">
+    var sceneData = {
+
+        "metadata": {
+            "version": 4.3,
+            "type": "Object",
+            "generator": "ObjectExporter"
+        },
+        "geometries": [
+            {
+                "uuid": "E2B3AA24-60C7-43C9-AD10-BD3B7D9D4AAF",
+                "type": "BoxGeometry",
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+            },
+            {
+                "uuid": "A0DB1CCB-7FDE-4B1E-AFFD-9BB61350AC21",
+                "type": "SphereGeometry",
+                "radius": 2,
+                "widthSegments": 32,
+                "heightSegments": 16,
+                "phiStart": 0,
+                "phiLength": 6.28,
+                "thetaStart": 0,
+                "thetaLength": 3.14
+            }],
+        "materials": [
+            {
+                "uuid": "CF5E11A7-8735-4ED5-ACB5-C3921EE88502",
+                "type": "MeshPhongMaterial",
+                "color": 12123332,
+                "emissive": 0,
+                "specular": 1118481,
+                "shininess": 30
+            },
+            {
+                "uuid": "4E1ABD5D-7F20-4503-A2BD-E3ECDFC0ECE9",
+                "type": "MeshPhongMaterial",
+                "color": 16777215,
+                "emissive": 0,
+                "specular": 1118481,
+                "shininess": 30
+            }],
+        "object": {
+            "uuid": "3741222A-BD8F-401C-A5D2-5A907E891896",
+            "type": "Scene",
+            "name": "Scene",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+            "children": [
+                {
+                    "uuid": "C5CEF24E-FC0F-4EFC-A2B5-528559BF7269",
+                    "type": "Mesh",
+                    "name": "Box 1",
+                    "geometry": "E2B3AA24-60C7-43C9-AD10-BD3B7D9D4AAF",
+                    "material": "CF5E11A7-8735-4ED5-ACB5-C3921EE88502",
+                    "matrix": [0.20967929065227509, -0.17109015583992004, 0.9626851677894592, 0, 0.4504367709159851, 0.8907762765884399, 0.060202229768037796, 0, -0.867837131023407, 0.42100563645362854, 0.2638426423072815, 0, 0, 2, -2.6439545154571533, 1]
+                },
+                {
+                    "uuid": "5DFC55A0-9150-4857-9806-6BC66DBEE97C",
+                    "type": "Mesh",
+                    "name": "Box 2",
+                    "geometry": "E2B3AA24-60C7-43C9-AD10-BD3B7D9D4AAF",
+                    "material": "CF5E11A7-8735-4ED5-ACB5-C3921EE88502",
+                    "matrix": [0.20967929065227509, -0.17109015583992004, 0.9626851677894592, 0, 0.4504367709159851, 0.8907762765884399, 0.060202229768037796, 0, -0.867837131023407, 0.42100563645362854, 0.2638426423072815, 0, 0, 2, 2.2189791202545166, 1]
+                },
+                {
+                    "uuid": "2E8ACD4D-8851-4E81-BDB8-A4C774A2BC92",
+                    "type": "Mesh",
+                    "name": "Box 3",
+                    "geometry": "E2B3AA24-60C7-43C9-AD10-BD3B7D9D4AAF",
+                    "material": "CF5E11A7-8735-4ED5-ACB5-C3921EE88502",
+                    "matrix": [0.20967929065227509, -0.17109015583992004, 0.9626851677894592, 0, 0.4504367709159851, 0.8907762765884399, 0.060202229768037796, 0, -0.867837131023407, 0.42100563645362854, 0.2638426423072815, 0, 1.8959485292434692, 2.002139091491699, 0.0617460273206234, 1]
+                },
+                {
+                    "uuid": "BF3794A1-4806-4336-8B49-3DDE54880C20",
+                    "type": "Mesh",
+                    "name": "Sphere 1",
+                    "geometry": "A0DB1CCB-7FDE-4B1E-AFFD-9BB61350AC21",
+                    "material": "4E1ABD5D-7F20-4503-A2BD-E3ECDFC0ECE9",
+                    "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -8.001365661621094, 2, 2, 1]
+                }]
+        }
+    };
+</script>
+
+<script type="text/javascript">
+    var b3nchson = {
+        "nodes": [{
+            "label": "TASK",
+            "uuid": "4f91c51f-1376-11e5-af73-3311c4693965",
+            "data": {
+                "data": {},
+                "correctedBoundsByContainer": {
+                    "left": 332.15909,
+                    "top": 542.1875,
+                    "width": 73.181816,
+                    "height": 71.875
+                },
+                "name": "d",
+                "shape": {
+                    "Bounds": {"left": 332.15909, "top": 542.1875, "width": 73.181816, "height": 71.875},
+                    "uuid": "4f91c51f-1376-11e5-af73-3311c4693965",
+                    "Class": "ShapedGraphic",
+                    "FontInfo": {
+                        "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                        "Font": "GillSans-Light",
+                        "Size": 11
+                    },
+                    "ID": 22,
+                    "Shape": "Rectangle",
+                    "Style": {
+                        "shadow": {"Draws": "NO"},
+                        "stroke": {
+                            "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                            "CornerRadius": 5,
+                            "Width": 0.5
+                        }
+                    },
+                    "Text": {"text": "TASK::d"}
+                }
+            }
+        }, {
+            "label": "TASK",
+            "uuid": "4f91ebe6-1376-11e5-af73-3311c4693965",
+            "data": {
+                "data": {},
+                "correctedBoundsByContainer": {
+                    "left": 241.53409,
+                    "top": 542.1875,
+                    "width": 73.181816,
+                    "height": 71.875
+                },
+                "name": "d",
+                "shape": {
+                    "Bounds": {"left": 241.53409, "top": 542.1875, "width": 73.181816, "height": 71.875},
+                    "uuid": "4f91ebe6-1376-11e5-af73-3311c4693965",
+                    "Class": "ShapedGraphic",
+                    "FontInfo": {
+                        "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                        "Font": "GillSans-Light",
+                        "Size": 11
+                    },
+                    "ID": 21,
+                    "Shape": "Rectangle",
+                    "Style": {
+                        "shadow": {"Draws": "NO"},
+                        "stroke": {
+                            "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                            "CornerRadius": 5,
+                            "Width": 0.5
+                        }
+                    },
+                    "Text": {"text": "TASK::d"}
+                }
+            }
+        }, {
+            "label": "TASK",
+            "uuid": "4f91ebed-1376-11e5-af73-3311c4693965",
+            "data": {
+                "data": {},
+                "correctedBoundsByContainer": {
+                    "left": 154.03409,
+                    "top": 542.1875,
+                    "width": 73.181816,
+                    "height": 71.875
+                },
+                "name": "d",
+                "shape": {
+                    "Bounds": {"left": 154.03409, "top": 542.1875, "width": 73.181816, "height": 71.875},
+                    "uuid": "4f91ebed-1376-11e5-af73-3311c4693965",
+                    "Class": "ShapedGraphic",
+                    "FontInfo": {
+                        "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                        "Font": "GillSans-Light",
+                        "Size": 11
+                    },
+                    "ID": 20,
+                    "Shape": "Rectangle",
+                    "Style": {
+                        "shadow": {"Draws": "NO"},
+                        "stroke": {
+                            "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                            "CornerRadius": 5,
+                            "Width": 0.5
+                        }
+                    },
+                    "Text": {"text": "TASK::d"}
+                }
+            }
+        }, {
+            "label": "TASK",
+            "uuid": "4f91ec11-1376-11e5-af73-3311c4693965",
+            "data": {
+                "data": {},
+                "correctedBoundsByContainer": {
+                    "left": 241.53409,
+                    "top": 417.1875,
+                    "width": 73.181816,
+                    "height": 71.875
+                },
+                "name": "d",
+                "shape": {
+                    "Bounds": {"left": 241.53409, "top": 417.1875, "width": 73.181816, "height": 71.875},
+                    "uuid": "4f91ec11-1376-11e5-af73-3311c4693965",
+                    "Class": "ShapedGraphic",
+                    "FontInfo": {
+                        "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                        "Font": "GillSans-Light",
+                        "Size": 11
+                    },
+                    "ID": 13,
+                    "Shape": "Rectangle",
+                    "Style": {
+                        "shadow": {"Draws": "NO"},
+                        "stroke": {
+                            "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                            "CornerRadius": 5,
+                            "Width": 0.5
+                        }
+                    },
+                    "Text": {"text": "TASK::d"}
+                }
+            }
+        }, {
+            "label": "TASK",
+            "uuid": "4f91ec18-1376-11e5-af73-3311c4693965",
+            "data": {
+                "data": {},
+                "correctedBoundsByContainer": {
+                    "left": 185.28409,
+                    "top": 292.1875,
+                    "width": 73.181816,
+                    "height": 71.875
+                },
+                "name": "c",
+                "shape": {
+                    "Bounds": {"left": 185.28409, "top": 292.1875, "width": 73.181816, "height": 71.875},
+                    "uuid": "4f91ec18-1376-11e5-af73-3311c4693965",
+                    "Class": "ShapedGraphic",
+                    "FontInfo": {
+                        "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                        "Font": "GillSans-Light",
+                        "Size": 11
+                    },
+                    "ID": 12,
+                    "Shape": "Rectangle",
+                    "Style": {
+                        "shadow": {"Draws": "NO"},
+                        "stroke": {
+                            "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                            "CornerRadius": 5,
+                            "Width": 0.5
+                        }
+                    },
+                    "Text": {"text": "TASK::c"}
+                }
+            }
+        }, {
+            "label": "TASK",
+            "uuid": "4f91ec1f-1376-11e5-af73-3311c4693965",
+            "data": {
+                "data": {},
+                "correctedBoundsByContainer": {
+                    "left": 154.03409,
+                    "top": 417.1875,
+                    "width": 73.181816,
+                    "height": 71.875
+                },
+                "name": "b",
+                "shape": {
+                    "Bounds": {"left": 154.03409, "top": 417.1875, "width": 73.181816, "height": 71.875},
+                    "uuid": "4f91ec1f-1376-11e5-af73-3311c4693965",
+                    "Class": "ShapedGraphic",
+                    "FontInfo": {
+                        "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                        "Font": "GillSans-Light",
+                        "Size": 11
+                    },
+                    "ID": 11,
+                    "Shape": "Rectangle",
+                    "Style": {
+                        "shadow": {"Draws": "NO"},
+                        "stroke": {
+                            "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                            "CornerRadius": 5,
+                            "Width": 0.5
+                        }
+                    },
+                    "Text": {"text": "TASK::b"}
+                }
+            }
+        }, {
+            "label": "TASK",
+            "uuid": "4f91ec26-1376-11e5-af73-3311c4693965",
+            "data": {
+                "data": {},
+                "correctedBoundsByContainer": {
+                    "left": 185.28409,
+                    "top": 170.3125,
+                    "width": 73.181816,
+                    "height": 71.875
+                },
+                "name": "a",
+                "shape": {
+                    "Bounds": {"left": 185.28409, "top": 170.3125, "width": 73.181816, "height": 71.875},
+                    "uuid": "4f91ec26-1376-11e5-af73-3311c4693965",
+                    "Class": "ShapedGraphic",
+                    "FontInfo": {
+                        "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                        "Font": "GillSans-Light",
+                        "Size": 11
+                    },
+                    "ID": 6,
+                    "Shape": "Rectangle",
+                    "Style": {
+                        "shadow": {"Draws": "NO"},
+                        "stroke": {
+                            "Color": {"b": "0.298039", "g": "0.298039", "r": "0.298039"},
+                            "CornerRadius": 5,
+                            "Width": 0.5
+                        }
+                    },
+                    "Text": {"text": "TASK::a"}
+                }
+            }
+        }],
+        "relationships": [{
+            "uuid": "4f923a00-1376-11e5-af73-3311c4693965",
+            "from": "4f91ec11-1376-11e5-af73-3311c4693965",
+            "to": "4f91c51f-1376-11e5-af73-3311c4693965",
+            "type": "DEPENDS_ON",
+            "data": {
+                "shape": {
+                    "Class": "LineGraphic",
+                    "uuid": "4f91c50c-1376-11e5-af73-3311c4693965",
+                    "Head": {"ID": 22},
+                    "ID": 25,
+                    "Points": ["{304.42679, 489.26465}", "{342.79535, 541.98444}"],
+                    "Style": {"stroke": {"HeadArrow": "FilledArrow", "LineType": 1, "TailArrow": "0"}},
+                    "Tail": {"ID": 13}
+                }
+            }
+        }, {
+            "uuid": "4f923a01-1376-11e5-af73-3311c4693965",
+            "from": "4f91ec11-1376-11e5-af73-3311c4693965",
+            "to": "4f91ebe6-1376-11e5-af73-3311c4693965",
+            "type": "DEPENDS_ON",
+            "data": {
+                "shape": {
+                    "Class": "LineGraphic",
+                    "uuid": "4f91c512-1376-11e5-af73-3311c4693965",
+                    "Head": {"ID": 21},
+                    "ID": 24,
+                    "Points": ["{278.24594, 489.31253}", "{278.42181, 541.9375}"],
+                    "Style": {"stroke": {"HeadArrow": "FilledArrow", "LineType": 1, "TailArrow": "0"}},
+                    "Tail": {"ID": 13}
+                }
+            }
+        }, {
+            "uuid": "4f923a02-1376-11e5-af73-3311c4693965",
+            "from": "4f91ec11-1376-11e5-af73-3311c4693965",
+            "to": "4f91ebed-1376-11e5-af73-3311c4693965",
+            "type": "DEPENDS_ON",
+            "data": {
+                "shape": {
+                    "Class": "LineGraphic",
+                    "uuid": "4f91c518-1376-11e5-af73-3311c4693965",
+                    "Head": {"ID": 20},
+                    "ID": 23,
+                    "Points": ["{252.94017, 489.26761}", "{216.20685, 541.98346}"],
+                    "Style": {"stroke": {"HeadArrow": "FilledArrow", "LineType": 1, "TailArrow": "0"}},
+                    "Tail": {"ID": 13}
+                }
+            }
+        }, {
+            "uuid": "4f923a03-1376-11e5-af73-3311c4693965",
+            "from": "4f91ec18-1376-11e5-af73-3311c4693965",
+            "to": "4f91ec11-1376-11e5-af73-3311c4693965",
+            "type": "DEPENDS_ON",
+            "data": {
+                "shape": {
+                    "Class": "LineGraphic",
+                    "uuid": "4f91ebf3-1376-11e5-af73-3311c4693965",
+                    "Head": {"ID": 13},
+                    "ID": 19,
+                    "Points": ["{238.18945, 364.29037}", "{261.94876, 416.95929}"],
+                    "Style": {"stroke": {"HeadArrow": "FilledArrow", "LineType": 1, "TailArrow": "0"}},
+                    "Tail": {"ID": 12}
+                }
+            }
+        }, {
+            "uuid": "4f923a04-1376-11e5-af73-3311c4693965",
+            "from": "4f91ec18-1376-11e5-af73-3311c4693965",
+            "to": "4f91ec1f-1376-11e5-af73-3311c4693965",
+            "type": "DEPENDS_ON",
+            "data": {
+                "shape": {
+                    "Class": "LineGraphic",
+                    "uuid": "4f91ebf9-1376-11e5-af73-3311c4693965",
+                    "Head": {"ID": 11},
+                    "ID": 18,
+                    "Points": ["{213.1512, 364.30554}", "{200.4585, 416.94629}"],
+                    "Style": {"stroke": {"HeadArrow": "FilledArrow", "LineType": 1, "TailArrow": "0"}},
+                    "Tail": {"ID": 12}
+                }
+            }
+        }, {
+            "uuid": "4f923a05-1376-11e5-af73-3311c4693965",
+            "from": "4f91ec26-1376-11e5-af73-3311c4693965",
+            "to": "4f91ec18-1376-11e5-af73-3311c4693965",
+            "type": "DEPENDS_ON",
+            "data": {
+                "shape": {
+                    "Class": "LineGraphic",
+                    "uuid": "4f91ec0a-1376-11e5-af73-3311c4693965",
+                    "Head": {"ID": 12},
+                    "ID": 15,
+                    "Points": ["{221.88271, 242.43748}", "{221.89326, 291.9375}"],
+                    "Style": {"stroke": {"HeadArrow": "FilledArrow", "LineType": 1, "TailArrow": "0"}},
+                    "Tail": {"ID": 6}
+                }
+            }
+        }]
+    };
+
+</script>
+
+
+<script type="text/javascript">
+
+    VR_ENGINE.kickStart(null, sceneData);
+    var sky = VR.sky();
+    VR.floor();
+
+    //    VR.box().setMaterial('wood').moveUp(0.5);
+
+    var scaleFactor = 1 / 50,
+            box;
+    b3nchson.nodes.forEach(function (n) {
+        console.log('::() ', n.data);
+        box = VR.box();
+        box.setScale(1, 2, 1);
+        box.moveTo(n.data.correctedBoundsByContainer.left * scaleFactor, 0.5, -n.data.correctedBoundsByContainer.top * scaleFactor);
+
+    })
+
+
+    VR.body.moveUp(10);
+
+
+    //    VR_ENGINE.kickStart(null, sceneData);
+    //    VR.floor().setMaterial('wood');
+
+
+    //    var box = VR.box();
+
+
+    /*
+     * animation
+     * */
+    //
+    VR_ENGINE.mousetrap.bind('up', function () {
+        console.log('::() up');
+        VR.body.moveZ(-0.2);
+    });
+    VR_ENGINE.mousetrap.bind('down', function () {
+        VR.body.moveZ(0.2);
+    });
+    VR_ENGINE.mousetrap.bind('left', function () {
+        VR.body.rotateY(0.05);
+    });
+    VR_ENGINE.mousetrap.bind('right', function () {
+        VR.body.rotateY(-0.05);
+    });
+
+
+    //    VR.animate(function (delta, time) {
+    //       //console.log( '::()' );
+    //    });
+
+</script>
+</body>
+</html>
