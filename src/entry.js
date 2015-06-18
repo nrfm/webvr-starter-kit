@@ -2,14 +2,14 @@
     'use strict';
 
     //global-ish declarations
-    var VR,
+    var VR = require('./vr'),
         NoSleep = require('nosleep').NoSleep;
 
     function initRequirements() {
         //load styles
         require('!style!css!./css/style.css');
 
-        VR = require('./vr');
+
     }
 
     function initUI() {
@@ -142,14 +142,12 @@
          */
         window.VR = VR;
         window.THREE = VR.THREE;
-        window.VR_ENGINE = {
-            kickStart: kickStart,
-            mousetrap: require('mousetrap')
 
-        };
     }
 
     function kickStart(containerId, sceneData) {
+        initialize();
+
         //todo: set up button/info elements
         VR.init(containerId, sceneData);
 
@@ -164,16 +162,20 @@
         VR.start();
     }
 
-    initialize();
+    window.VR_ENGINE = {
+        kickStart: kickStart
 
-    if (module) {
-        module.exports = {
-            VR: VR,
-            THREE: VR.THREE,
-            VR_ENGINE: {
-                kickStart: kickStart
-            }
-        };
-    }
+    };
+
+
+    //if (module) {
+    //    module.exports = {
+    //        VR: VR,
+    //        THREE: VR.THREE,
+    //        VR_ENGINE: {
+    //            kickStart: kickStart
+    //        }
+    //    };
+    //}
 
 }());
