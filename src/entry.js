@@ -165,19 +165,22 @@
     }
 
     window.VR_ENGINE = {
-        kickStart: kickStart
+        kickStart: kickStart,
+        P: 33
 
     };
+    window.VR = VR;
+    window.THREE = VR.THREE;
 
 
-    //if (module) {
-    //    module.exports = {
-    //        VR: VR,
-    //        THREE: VR.THREE,
-    //        VR_ENGINE: {
-    //            kickStart: kickStart
-    //        }
-    //    };
-    //}
+    if (module) {
+        module.exports = {
+            VR: VR,
+            THREE: VR.THREE,
+            VR_ENGINE: {
+                kickStart: kickStart
+            }
+        };
+    }
 
 }());
