@@ -168,16 +168,18 @@
         kickStart: kickStart
 
     };
+    window.VR = VR;
+    window.THREE = VR.THREE;
 
 
-    //if (module) {
-    //    module.exports = {
-    //        VR: VR,
-    //        THREE: VR.THREE,
-    //        VR_ENGINE: {
-    //            kickStart: kickStart
-    //        }
-    //    };
-    //}
+    if (module) {
+        module.exports = {
+            VR: VR,
+            THREE: VR.THREE,
+            VR_ENGINE: {
+                kickStart: kickStart
+            }
+        };
+    }
 
 }());
