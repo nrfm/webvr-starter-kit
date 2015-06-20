@@ -77,7 +77,8 @@
         container = document.createElement('div');
         container.id = 'buttons';
         //document.body.appendChild(container);
-        document.getElementById('outer').appendChild(container);
+
+        fullScreenElement.appendChild(container);
 
         //todo: use icons instead of text
         if (requestFullscreen && fullscreenEnabled) {
@@ -132,7 +133,7 @@
             }
         }, false);
 
-        VR.resize(600, 600);
+        VR.resize();
     }
 
     function initialize(containerId) {
