@@ -12,7 +12,7 @@
 
     }
 
-    function initUI() {
+    function initUI(containerId) {
         var container,
             enableFullscreen,
             disableFullscreen,
@@ -22,7 +22,7 @@
 
             noSleep = new NoSleep(),
 
-            fullScreenElement = document.body,
+            fullScreenElement = containerId ? document.getElementById(containerId) : document.body,
 
             fullscreenEnabled = document.fullscreenEnabled ||
                 document.webkitFullscreenEnabled ||
@@ -76,7 +76,8 @@
 
         container = document.createElement('div');
         container.id = 'buttons';
-        document.body.appendChild(container);
+        //document.body.appendChild(container);
+        document.getElementById('outer').appendChild(container);
 
         //todo: use icons instead of text
         if (requestFullscreen && fullscreenEnabled) {
@@ -131,10 +132,10 @@
             }
         }, false);
 
-        VR.resize();
+        VR.resize(600, 600);
     }
 
-    function initialize() {
+    function initialize(containerId) {
         initRequirements();
 
         /*
@@ -146,13 +147,13 @@
     }
 
     function kickStart(containerId, sceneData) {
-        initialize();
+        initialize(containerId);
 
         //todo: set up button/info elements
         VR.init(containerId, sceneData);
 
         if (document.body) {
-            initUI();
+            initUI(containerId);
         } else {
             window.addEventListener('load', initUI, false);
         }

@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 <body>
-<div id="vr-container">
+<div id='outer'>
+    <div id="vr-container">
 
+    </div>
 </div>
 
-<!--<script type="text/javascript" src="../build/vr.dev.js" charset="utf-8"></script>-->
-<script src="//nrfm.github.io/webvr-starter-kit/build/vr.js" charset="utf-8">
-    <script type="text/javascript" src="../node_modules/lodash" charset="utf-8"></script>
+<script type="text/javascript" src="../build/vr.dev.js" charset="utf-8"></script>
+<!--<script src="//nrfm.github.io/webvr-starter-kit/build/vr.js" charset="utf-8">-->
+<script type="text/javascript" src="../node_modules/lodash" charset="utf-8"></script>
 <script type="text/javascript">
     var sceneData = {
 
@@ -105,11 +107,12 @@
 
 <script type="text/javascript">
 
-    VR_ENGINE.kickStart('vr-container', sceneData);
-    //    var sky = VR.sky();
-    //    VR.floor();
-    //    VR.box().setMaterial('wood').moveUp(0.5);
+    VR_ENGINE.kickStart('vr-container');
 
+    VR.floor();
+    var box1 = VR.box().setMaterial('wood').moveUp(0.5);
+    var box2 = VR.box().setMaterial('wood').moveUp(1.5);
+    var box3 = VR.box().setMaterial('wood').moveUp(2.5);
 
     /*
      * animation
@@ -117,9 +120,12 @@
     //
 
 
-    //    VR.animate(function (delta, time) {
-    //       //console.log( '::()' );
-    //    });
+    VR.animate(function (delta, time) {
+        //console.log( '::()' );
+        box1.rotateY(0.005);
+        box2.rotateY(0.006);
+        box3.rotateY(0.007);
+    });
 
 </script>
 </body>
