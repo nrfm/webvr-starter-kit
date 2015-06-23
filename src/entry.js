@@ -166,7 +166,7 @@
 
     window.VR_ENGINE = {
         kickStart: kickStart,
-        P: 33
+        mousetrap : require('mousetrap')
 
     };
     window.VR = VR;
