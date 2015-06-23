@@ -16,7 +16,7 @@
 
 }
 
-canvas {
+#vr-container canvas {
     width: 100% !important;
     height: 100% !important;
     /*position: absolute;*/
@@ -24,7 +24,7 @@ canvas {
     left: 0;
 }
 
-#buttons {
+#vr-container #buttons {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -34,7 +34,7 @@ canvas {
     background-color: rgba(128, 128, 128, 0.6);
 }
 
-#buttons > * {
+#vr-container #buttons > * {
     margin: 0 10px;
     display: inline-block;
     width: 18px;
@@ -42,14 +42,14 @@ canvas {
     cursor: pointer;
 }
 
-#buttons > *:first-child {
+#vr-container #buttons > *:first-child {
     margin-left: 0;
 }
 
-#buttons > .unsupported {
+#vr-container #buttons > .unsupported {
     display: none;
 }
 
-#fs-disable {
+#vr-container #fs-disable {
     display: none;
 }

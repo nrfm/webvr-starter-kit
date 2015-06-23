@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WebVR Starter Kit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style type="text/css">
+        .metacontainer {
+            position: relative;
+            width: 600px;
+            height: 600px;
+
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="metacontainer">
+    <!--<div id='outer'>-->
+    <div id="vr-container">
+
+    </div>
+    <!--</div>-->
+</div>
+
+
+<script type="text/javascript" src="../build/vr.dev.js" charset="utf-8"></script>
+<!--<script src="//nrfm.github.io/webvr-starter-kit/build/vr.js" charset="utf-8">-->
+<script type="text/javascript" src="../node_modules/lodash" charset="utf-8"></script>
+<script type="text/javascript">
+
+</script>
+
+
+<script type="text/javascript">
+
+    VR_ENGINE.kickStart('vr-container');
+    VR.floor();
+
+    //tunnel.setMaterial('grass');
+
+    /*
+    * simple dunction that makes a wedge
+    * var w = wedge({color:[acolor in hex], arc: [an arc angle size]})
+    * */
+    function wedge(options) {
+        var parent = options.parent || VR;
+        var w = parent.torus({
+            color: options.color || '#ffffff'
+            , radius: options.radius || 4
+            , tube: options.tube || 0.2
+            , radialSegments: options.radialSegments || 8
+            , arc: options.arc || 1
+        }, parent, parent);
+
+        w.setScale(1, 1, 100);
+        return w;
+    }
+
+    function makeCycleArray(arr){
+        var arr = arr, index = 0;
+         return function(){
+             if(index + 1 < arr.length){
+                 index += 1;
+             }else{
+                 index = 0;
+             }
+             return arr[index];
+         }
+    }
+
+    var colors = [ '#ff0000',  '#00ff00', '#0000ff']
+            , segments = colors.length * 5//so the colors dont bump into each other when cycling
+            , rotAng = Math.PI * 2 / segments;
+    var getNextColor = makeCycleArray(colors);
+
+    var tunnel = VR.empty();
+    tunnel.moveUp(0.1);
+
+    _.times(segments, function(t){
+        var w1 = wedge({color: getNextColor() , arc: rotAng, parent: tunnel});
+        w1.rotateZ( rotAng * t );
+    }, this);
+
+    VR.animate(function(){
+        tunnel.rotateZ(.001);
+    });
+
+
+
+
+</script>
+</body>
+</html>
