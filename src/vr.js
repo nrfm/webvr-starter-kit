@@ -111,8 +111,11 @@
             target = object;
             if (target) {
                 vrObject = VRObject.findObject(target);
-                vrObject.emit('lookat', intersect);
-                VR.emit('lookat', vrObject, intersect);
+                if(vrObject) {
+                    console.log( '::raycast() avoid objects loaded by sceneData for now //todo:fix adding objects to scene ' );
+                    vrObject.emit('lookat', intersect);
+                    VR.emit('lookat', vrObject, intersect);
+                }
             }
         }
     }
