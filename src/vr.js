@@ -105,14 +105,17 @@
         if (target !== object) {
             if (target) {
                 vrObject = VRObject.findObject(target);
-                vrObject.emit('lookaway');
-                VR.emit('lookaway', vrObject);
+                if (vrObject) {
+                    console.log('::raycast() avoid objects loaded by sceneData for now //todo:fix adding objects to scene ');
+                    vrObject.emit('lookaway');
+                    VR.emit('lookaway', vrObject);
+                }
             }
             target = object;
             if (target) {
                 vrObject = VRObject.findObject(target);
-                if(vrObject) {
-                    console.log( '::raycast() avoid objects loaded by sceneData for now //todo:fix adding objects to scene ' );
+                if (vrObject) {
+                    console.log('::raycast() avoid objects loaded by sceneData for now //todo:fix adding objects to scene ');
                     vrObject.emit('lookat', intersect);
                     VR.emit('lookat', vrObject, intersect);
                 }
@@ -256,11 +259,11 @@
         scene = new THREE.Scene();
 
         /*
-        *
-        * if we pass a scene in json use that as the scene
-        * */
+         *
+         * if we pass a scene in json use that as the scene
+         * */
         if (sceneData) {
-            console.log( '::initScene()      ' );
+            console.log('::initScene()      ');
             if (typeof sceneData === 'string') {
 
 
@@ -351,7 +354,7 @@
         });
 
         //mouse control in case got no orientation device
-        mouseControls = new THREE.OrbitControls(camera, document.getElementById(containerId) );
+        mouseControls = new THREE.OrbitControls(camera, document.getElementById(containerId));
         mouseControls.target0.set(0, 0.0001, 0.000);
         mouseControls.target.copy(mouseControls.target0);
         mouseControls.update();
@@ -424,7 +427,7 @@
 
     function initialize(containerId, sceneData) {
         //todo: set up button/info elements
-        console.log( '::initialize()' , arguments);
+        console.log('::initialize()', arguments);
         initScene(containerId, sceneData);
 
         initShake();
